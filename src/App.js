@@ -1,4 +1,4 @@
-import { Link, useParams, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Nav from './components/header';
 import Footer from './components/footer';
 
