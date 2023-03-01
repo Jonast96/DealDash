@@ -4,14 +4,13 @@ import React from 'react';
 export default function Nav() {
 
   const [dropDownMenu, setDropDownMenu] = React.useState(false)
-  function changeState () {
-    setDropDownMenu((prevState) => !prevState )
-  }
+
 
     return (
+      <header>
       <nav className='nav'>
         <h1><Link className='h1' to={"/"}>DealDash</Link></h1>
-        <div onClick={()=>{changeState()}} className={dropDownMenu ? "hamburger active" : "hamburger"}>
+        <div onClick={()=>{setDropDownMenu((prevState) => !prevState )}} className={dropDownMenu ? "hamburger active" : "hamburger"}>
             <span></span>
             <span></span>
             <span></span>
@@ -27,5 +26,6 @@ export default function Nav() {
         <input className='flex-item' placeholder='Search items' type={'search'}></input>
         </div>
       </nav>
+      </header>
     )
   }
