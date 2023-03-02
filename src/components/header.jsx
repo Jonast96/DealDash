@@ -9,12 +9,14 @@ export default function Nav() {
     return (
       <header>
       <nav className='nav'>
-        <h1><Link className='h1' to={"/"}>DealDash</Link></h1>
+      <div className='h1-menu'>
         <div onClick={()=>{setDropDownMenu((prevState) => !prevState )}} className={dropDownMenu ? "hamburger active" : "hamburger"}>
             <span></span>
             <span></span>
             <span></span>
         </div>
+        <h1><Link className='h1' to={"/"}>DealDash</Link></h1>
+      </div>
 
         <div className={dropDownMenu ? "dropdown active": "dropdown"}>
         <p className='flex-item'><Link to={"/cart"}>Cart</Link></p>

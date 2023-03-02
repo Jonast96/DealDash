@@ -1,0 +1,62 @@
+@import "../variables";
+
+.heading {
+  background-image: url("../../media/kygo.jpg");
+  background-size: cover;
+
+  background-position: center 80%;
+  position: relative;
+  color: $secondary-color;
+  height: 400px;
+  width: 100%;
+  margin-top: 15px;
+  text-align: center;
+  background-color: $primary-color;
+  .heading::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .text {
+    max-width: 400px;
+    min-width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    filter: drop-shadow(0 0 100px rgba(0, 0, 0, 1));
+    font-size: 1.3rem;
+    font-family: $main-font;
+  }
+
+  .button {
+    margin-top: 20px;
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .heading {
+    background-size: 400px;
+    background-repeat: no-repeat;
+    background-position: right 100%;
+    max-width: 1400px;
+    margin: 50px auto;
+    box-shadow: 2px 2px 5px black;
+
+    .text {
+      max-width: 600px;
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .heading {
+    border-radius: 5px;
+  }
+}
