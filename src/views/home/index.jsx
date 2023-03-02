@@ -1,7 +1,9 @@
-import Logo from "./media/kygo"
+import kygo from "../../media/kygo.jpg"
+
+import "../../styles/home.scss"
 
 export default function Home () {
     return(
-        <img src={Logo}></img>
+        <img src={kygo}></img>
     )
 }
