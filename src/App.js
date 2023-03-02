@@ -1,8 +1,9 @@
+//React imports
 import { Routes, Route } from 'react-router-dom';
+
+//Component imports
 import Nav from './components/header';
 import Footer from './components/footer';
-
-
 import Deals from './views/deals/deals';
 import Home from './views/home';
 import Support from './views/support/support';
