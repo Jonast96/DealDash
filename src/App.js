@@ -9,6 +9,7 @@ import Home from './views/home';
 import Support from './views/support/support';
 import WhatsNew from './views/whatsNew/whatsNew';
 import Cart from './views/cart/cart';
+import SingleItem from "./views/singleItem/singleItem"
 import "./styles/styles.scss"
 
 function Layout(props) {
@@ -34,6 +35,7 @@ function App() {
           <Route path='/support' element={<Support />} />
           <Route path='/whats-new' element={<WhatsNew />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/product/:id' element={<SingleItem />} />
         </Routes>
       </Layout>
     </div>
