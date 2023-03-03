@@ -33,7 +33,9 @@ export default function ProductCard(props) {
           {stars} ({props.reviews})
         </div>
         <p className="price">{props.price}</p>
-        <button className="button">View Product</button>
+        <Link to={`/product/${props.id}`}>
+          <button className="button">View Product</button>
+        </Link>
       </div>
     </div>
   );

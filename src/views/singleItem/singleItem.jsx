@@ -18,6 +18,65 @@ export default function SingleItem() {
     return <p>An error occurred: {error.message}</p>;
   }
 
+  function Reviews() {
+    const [reviews, setReviews] = React.useState(data.reviews);
+
+    const rating = Math.round(data.rating);
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      if (i < rating) {
+        stars.push(
+          <span key={i} className="star">
+            &#9733;
+          </span>
+        );
+      } else {
+        stars.push(
+          <span key={i} className="star">
+            &#9734;
+          </span>
+        );
+      }
+    }
+
+    console.log(reviews);
+    return reviews.length ? (
+      reviews.map((review) => {
+        return (
+          <div key={review.id} className="review">
+            <div className="starsName">
+              <p className="name">{review.username}</p>
+              <div className="starDiv">
+                {stars} ({data.reviews.length})
+              </div>
+            </div>
+            <p>{review.description}</p>
+          </div>
+        );
+      })
+    ) : (
+      <div>There are currently no reviews for this product</div>
+    );
+  }
+
+  const rating = Math.round(data.rating);
+  const stars = [];
+  for (let i = 0; i < 5; i++) {
+    if (i < rating) {
+      stars.push(
+        <span key={i} className="star">
+          &#9733;
+        </span>
+      );
+    } else {
+      stars.push(
+        <span key={i} className="star">
+          &#9734;
+        </span>
+      );
+    }
+  }
+
   return (
     <main className="main-content singleItem">
       <div className="singleItemMain">
@@ -31,35 +90,24 @@ export default function SingleItem() {
               <h2 className="desktopTitle">{data.title}</h2>
             </div>
             <div className="">
-              <span className="star">&#9733;</span>
-              <span className="star">&#9733;</span>
-              <span className="star">&#9733;</span>
-              <span className="star">&#9733;</span>
-              <span className="star">&#9733;</span>({data.reviews.length})
+              {stars} ({data.reviews.length})
             </div>
-            <div className="price ">{data.price},-</div>
+          </div>
+          <div className="price ">
+            {data.discountedPrice === data.price ? (
+              `${data.price},-`
+            ) : (
+              <span>
+                {data.discountedPrice},-{" "}
+                <span className="original-price">{data.price},-</span>
+              </span>
+            )}
           </div>
           <p>{data.description}</p>
           <button className="button">Add to cart</button>
           <div className="reviews">
             <h3>Reviews</h3>
-            <div className="review">
-              <div className="starsName">
-                <p className="name">Ola N</p>
-                <div className="starDiv">
-                  <span className="star">&#9733;</span>
-                  <span className="star">&#9733;</span>
-                  <span className="star">&#9733;</span>
-                  <span className="star">&#9733;</span>
-                </div>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                placeat natus consectetur corporis debitis magni necessitatibus,
-                ea totam explicabo? Eos, veniam voluptatibus. Dolore unde animi
-                nobis placeat dignissimos impedit corrupti.
-              </p>
-            </div>
+            <Reviews />
           </div>
         </div>
       </div>

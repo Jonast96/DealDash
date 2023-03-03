@@ -39,7 +39,8 @@
     transition: ease-in-out 0.2s;
   }
   .button:hover {
-    background-color: $secondary-color;
+    background-color: $primary-color;
+    color: #f4f4f4;
   }
   .original-price {
     text-decoration: line-through;

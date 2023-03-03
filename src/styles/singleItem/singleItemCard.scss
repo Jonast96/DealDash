@@ -4,6 +4,12 @@
   .desktopTitle {
     display: none;
   }
+  .original-price {
+    text-decoration: line-through;
+    font-size: 1rem;
+    color: gray;
+    vertical-align: text-top;
+  }
   padding: 20px;
   display: flex;
   flex-direction: column;
