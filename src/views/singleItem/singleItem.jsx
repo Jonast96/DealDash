@@ -23,7 +23,7 @@ export default function SingleItem() {
       <div className="singleItemMain">
         <h2 className="mobileTitle">{data.title}</h2>
         <div className="img-div">
-          <img src={data.imageUrl}></img>
+          <img src={data.imageUrl} alt={data.imageUrl}></img>
         </div>
         <div>
           <div className="starsPrice">
