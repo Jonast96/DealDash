@@ -8,7 +8,6 @@ export default function SingleItem() {
   const { data, error, loading } = useApiCall(
     `https://api.noroff.dev/api/v1/online-shop/${params.id}`
   );
-  console.log(data);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -19,7 +18,7 @@ export default function SingleItem() {
   }
 
   function Reviews() {
-    const [reviews, setReviews] = React.useState(data.reviews);
+    const reviews = data.reviews;
 
     const rating = Math.round(data.rating);
     const stars = [];
@@ -39,7 +38,6 @@ export default function SingleItem() {
       }
     }
 
-    console.log(reviews);
     return reviews.length ? (
       reviews.map((review) => {
         return (

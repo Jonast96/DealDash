@@ -16,7 +16,7 @@ button {
   font-family: $heading-font;
 }
 
-body *:not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+body *:not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(svg) {
   font-family: $main-font;
 }
 
@@ -60,6 +60,24 @@ header {
     padding: 20px 0;
     margin: 0 auto;
     max-width: 1400px;
+    .cartContainer {
+      color: black;
+      border-radius: 20px;
+      margin: 0 auto;
+      background-color: white;
+      width: 50px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      p {
+        font-size: 1.2rem;
+        margin: auto;
+      }
+      img {
+        width: 30px;
+      }
+    }
 
     .dropdown {
       max-height: 0;

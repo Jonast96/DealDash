@@ -11,6 +11,7 @@ import WhatsNew from './views/whatsNew/whatsNew';
 import Cart from './views/cart/cart';
 import SingleItem from "./views/singleItem/singleItem"
 import "./styles/styles.scss"
+import React from 'react';
 
 function Layout(props) {
   return (
@@ -24,8 +25,9 @@ function Layout(props) {
 
 
 
-
 function App() {
+
+
   return (
     <div className='app'>
       <Layout>
