@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
-import React from "react";
-import cart from "../media/cart.png";
+import React, { useContext } from "react";
+import cartImg from "../media/cart.png";
+import { CartContext } from "./Cart";
 
 export default function Nav() {
   const [dropDownMenu, setDropDownMenu] = React.useState(false);
+
+  const { cart } = useContext(CartContext);
 
   return (
     <header>
@@ -30,8 +33,8 @@ export default function Nav() {
           <div className="flex-item center">
             <Link to={"/cart"}>
               <div className="cartContainer">
-                <img src={cart}></img>
-                <p>0</p>
+                <img src={cartImg} alt={cartImg}></img>
+                <p>{cart.length}</p>
               </div>
             </Link>
           </div>

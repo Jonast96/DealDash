@@ -1,5 +1,5 @@
 import "../../styles/home/header.scss";
-import Header from "./header";
+import Header from "./heading";
 import ProductCard from "./product-card";
 import React from "react";
 import useApiCall from "../../components/apiHook";

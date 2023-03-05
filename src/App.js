@@ -12,6 +12,7 @@ import Cart from './views/cart/cart';
 import SingleItem from "./views/singleItem/singleItem"
 import "./styles/styles.scss"
 import React from 'react';
+import { CartProvider } from './components/Cart';
 
 function Layout(props) {
   return (
@@ -24,23 +25,24 @@ function Layout(props) {
 }
 
 
-
 function App() {
 
 
   return (
-    <div className='app'>
-      <Layout>
-        <Routes>
-          <Route path='/deals' element={<Deals />} />
-          <Route path='/' element={<Home />} />
-          <Route path='/support' element={<Support />} />
-          <Route path='/whats-new' element={<WhatsNew />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/product/:id' element={<SingleItem />} />
-        </Routes>
-      </Layout>
-    </div>
+    <CartProvider>
+      <div className='app'>
+        <Layout>
+          <Routes>
+            <Route path='/deals' element={<Deals />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/support' element={<Support />} />
+            <Route path='/whats-new' element={<WhatsNew />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/product/:id' element={<SingleItem />} />
+          </Routes>
+        </Layout>
+      </div>
+    </CartProvider>
   );
 }
 

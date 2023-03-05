@@ -4,21 +4,19 @@ export default function useApiCall(url) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(url);
-        const responseData = await response.json();
+    fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((responseData) => {
         setData(responseData);
         setLoading(false);
-      } catch (err) {
-        setError(err);
+      })
+      .catch((error) => {
+        setError(error);
         setLoading(false);
-      }
-    }
-
-    fetchData();
+      });
   }, [url]);
 
   return { data, error, loading };

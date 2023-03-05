@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import useApiCall from "../../components/apiHook";
 import "../../styles/singleItem/singleItemCard.scss";
 
+import { CartContext } from "../../components/Cart";
 export default function SingleItem() {
   const params = useParams();
   const { data, error, loading } = useApiCall(
     `https://api.noroff.dev/api/v1/online-shop/${params.id}`
   );
+  console.log(data);
+
+  const { addToCart } = useContext(CartContext);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -19,7 +23,6 @@ export default function SingleItem() {
 
   function Reviews() {
     const reviews = data.reviews;
-
     const rating = Math.round(data.rating);
     const stars = [];
     for (let i = 0; i < 5; i++) {
@@ -102,7 +105,9 @@ export default function SingleItem() {
             )}
           </div>
           <p>{data.description}</p>
-          <button className="button">Add to cart</button>
+          <button onClick={() => addToCart(data)} className="button">
+            Add to cart
+          </button>
           <div className="reviews">
             <h3>Reviews</h3>
             <Reviews />
