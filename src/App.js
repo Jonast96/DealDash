@@ -10,6 +10,7 @@ import Support from './views/support/support';
 import WhatsNew from './views/whatsNew/whatsNew';
 import Cart from './views/cart/cart';
 import SingleItem from "./views/singleItem/singleItem"
+import CheckOut from './views/checkout/checkout';
 import "./styles/styles.scss"
 import React from 'react';
 import { CartProvider } from './components/Cart';
@@ -39,6 +40,7 @@ function App() {
             <Route path='/whats-new' element={<WhatsNew />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/product/:id' element={<SingleItem />} />
+            <Route path='/checkout' element={<CheckOut />} />
           </Routes>
         </Layout>
       </div>
