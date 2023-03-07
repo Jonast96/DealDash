@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../../styles/cart/cart.scss";
 
 export default function CartWithItems() {
-  const { cart, clearCart } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
 
   function calculateTotal(cart) {
     let total = 0;
