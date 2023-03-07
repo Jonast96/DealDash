@@ -42,6 +42,8 @@ button {
 .main-content {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 10px;
+  min-height: 100vh;
 }
 
 header {
@@ -211,5 +213,8 @@ footer {
         order: 1;
       }
     }
+  }
+  .main-content {
+    padding: 0 20px;
   }
 }
