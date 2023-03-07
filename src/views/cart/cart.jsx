@@ -4,7 +4,7 @@ import "../../styles/cart/cart.scss";
 import CartWithItems from "./cartWithItems";
 import EmptyCart from "./emptyCart";
 export default function Cart() {
-  const { cart, clearCart } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
 
   return <>{cart.length === 0 ? <EmptyCart /> : <CartWithItems />}</>;
 }
