@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import cartImg from "../media/cart.png";
 import { CartContext } from "./Cart";
 import useApiCall from "./apiHook";
