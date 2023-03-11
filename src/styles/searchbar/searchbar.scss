@@ -1,0 +1,22 @@
+header {
+  .mobileSearch {
+    width: 90%;
+    input {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .mobileSearch {
+    display: none;
+  }
+  .desktopSearch {
+    display: block;
+    max-width: 250px;
+    width: 100%;
+    input {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import "../variables";
+
+.emptyCart {
+  padding-top: 50px;
+  max-width: 700px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 auto;
+  button {
+    color: white;
+    width: 200px;
+    margin: 0 auto;
+    background-color: $primary-color;
+    border-radius: 5px;
+  }
+  img {
+    width: 150px;
+    padding: 20px;
+    border-radius: 50%;
+    border: solid black 1px;
+    margin: 0 auto;
+  }
+}

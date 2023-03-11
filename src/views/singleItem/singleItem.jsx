@@ -2,8 +2,12 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import useApiCall from "../../components/apiHook";
 import "../../styles/singleItem/singleItemCard.scss";
-
 import { CartContext } from "../../components/Cart";
+import Reviews from "./reviews";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function SingleItem() {
   const params = useParams();
   const { data, error, loading } = useApiCall(
@@ -21,45 +25,16 @@ export default function SingleItem() {
     return <p>An error occurred: {error.message}</p>;
   }
 
-  function Reviews() {
-    const reviews = data.reviews;
-    const rating = Math.round(data.rating);
-    const stars = [];
-    for (let i = 0; i < 5; i++) {
-      if (i < rating) {
-        stars.push(
-          <span key={i} className="star">
-            &#9733;
-          </span>
-        );
-      } else {
-        stars.push(
-          <span key={i} className="star">
-            &#9734;
-          </span>
-        );
-      }
-    }
-
-    return reviews.length ? (
-      reviews.map((review) => {
-        return (
-          <div key={review.id} className="review">
-            <div className="starsName">
-              <p className="name">{review.username}</p>
-              <div className="starDiv">
-                {stars} ({data.reviews.length})
-              </div>
-            </div>
-            <p>{review.description}</p>
-          </div>
-        );
-      })
-    ) : (
-      <div>There are currently no reviews for this product</div>
+  function Test() {
+    return (
+      <div className="popup">
+        <p className="title">{data.title} </p>
+        <p>has been added to your cart</p>
+      </div>
     );
   }
 
+  const notify = () => toast(<Test />);
   const rating = Math.round(data.rating);
   const stars = [];
   for (let i = 0; i < 5; i++) {
@@ -83,7 +58,7 @@ export default function SingleItem() {
       <div className="singleItemMain">
         <h2 className="mobileTitle">{data.title}</h2>
         <div className="img-div">
-          <img src={data.imageUrl} alt={data.imageUrl}></img>
+          <img className="img" src={data.imageUrl} alt={data.imageUrl}></img>
         </div>
         <div>
           <div className="starsPrice">
@@ -105,12 +80,32 @@ export default function SingleItem() {
             )}
           </div>
           <p>{data.description}</p>
-          <button onClick={() => addToCart(data)} className="button">
+          <button
+            onClick={() => {
+              addToCart(data);
+              notify();
+            }}
+            className="button"
+          >
             Add to cart
           </button>
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            closeButton={false}
+          />
+
           <div className="reviews">
             <h3>Reviews</h3>
-            <Reviews />
+            <Reviews data={data} />
           </div>
         </div>
       </div>

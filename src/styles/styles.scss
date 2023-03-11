@@ -1,4 +1,5 @@
 @import "variables";
+@import "./searchbar/searchbar.scss";
 
 * {
   margin: 0;
@@ -43,7 +44,6 @@ button {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 10px;
-  min-height: 100vh;
 }
 
 header {
@@ -180,6 +180,7 @@ footer {
     .h1-menu {
       width: auto;
     }
+
     nav {
       flex-direction: row;
       gap: 50px;
