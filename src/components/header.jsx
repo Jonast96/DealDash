@@ -5,31 +5,46 @@ import { CartContext } from "./Cart";
 import useApiCall from "./apiHook";
 
 export default function Nav() {
+  const [query, setQuery] = React.useState("");
+
   const [dropDownMenu, setDropDownMenu] = React.useState(false);
 
   const { cart } = useContext(CartContext);
 
-  const [filteredSearch, setFilteredSearch] = React.useState([]);
+  const { data, error, loading } = useApiCall(
+    `https://api.noroff.dev/api/v1/online-shop`
+  );
 
-  const { data } = useApiCall(`https://api.noroff.dev/api/v1/online-shop`);
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
-  const handleSearch = (query) => {
-    const filteredSearch = data.filter((item) => {
-      const title = item.title.toLowerCase();
-      return title.includes(query.toLowerCase());
-    });
-    setFilteredSearch(filteredSearch);
-  };
+  if (error) {
+    return <p>An error occurred: {error.message}</p>;
+  }
+
+  const filteredData = data.filter((item) =>
+    item.title.toLowerCase().includes(query)
+  );
 
   function SearchResult() {
     return (
       <div className="filteredItemContainer">
-        {filteredSearch.map((item) => {
-          return <div className="filteredItem">{item.title}</div>;
-        })}
+        {query.length > 0
+          ? filteredData.map((item) => {
+              return (
+                <Link to={`/product/${item.id}`}>
+                  <div className="filteredItem" key={item.id}>
+                    {item.title}
+                  </div>
+                </Link>
+              );
+            })
+          : ""}
       </div>
     );
   }
+
   return (
     <header>
       <nav className="nav">
@@ -73,35 +88,24 @@ export default function Nav() {
             </li>
           </ul>
           <div className="desktopSearch">
-            <SearchBar onSearch={handleSearch} />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              type="search"
+            />
             <SearchResult />
           </div>
         </div>
 
         <div className="mobileSearch">
-          <SearchBar onSearch={handleSearch} />
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            type="search"
+          />
           <SearchResult />
         </div>
       </nav>
     </header>
-  );
-}
-function SearchBar(props) {
-  const [query, setQuery] = useState("");
-
-  function handleInputChange(event) {
-    event.preventDefault();
-    props.onSearch(query);
-    setQuery(event.target.value);
-  }
-
-  return (
-    <input
-      className={`flex-item`}
-      placeholder="Search items"
-      type="text"
-      value={query}
-      onChange={handleInputChange}
-    />
   );
 }
