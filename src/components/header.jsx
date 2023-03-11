@@ -23,13 +23,9 @@ export default function Nav() {
 
   function SearchResult() {
     return (
-      <div>
+      <div className="filteredItemContainer">
         {filteredSearch.map((item) => {
-          return (
-            <>
-              <div className="filteredItem">{item.title}</div>
-            </>
-          );
+          return <div className="filteredItem">{item.title}</div>;
         })}
       </div>
     );
