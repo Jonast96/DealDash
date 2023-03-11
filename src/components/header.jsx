@@ -11,9 +11,7 @@ export default function Nav() {
 
   const [filteredSearch, setFilteredSearch] = React.useState([]);
 
-  const { data, error, loading } = useApiCall(
-    `https://api.noroff.dev/api/v1/online-shop`
-  );
+  const { data } = useApiCall(`https://api.noroff.dev/api/v1/online-shop`);
 
   const handleSearch = (query) => {
     const filteredSearch = data.filter((item) => {
