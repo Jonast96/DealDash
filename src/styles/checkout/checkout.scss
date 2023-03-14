@@ -1,0 +1,55 @@
+.checkoutContainer {
+  .checkoutForm {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 60% 40%;
+  }
+
+  .labelInput {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+  }
+  input {
+    font-size: 1.1rem;
+    border: none;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  label {
+    font-size: 0.9rem;
+  }
+  .errorMessage {
+    color: rgb(172, 2, 2);
+    font-size: 0.8rem;
+  }
+  .categories {
+    font-weight: 900;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+
+  .radioContainer {
+    max-width: 350px;
+    display: flex;
+    justify-content: space-between;
+    input[type="radio"] {
+      border: 1px solid #000000;
+      padding: 0.5em;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      -o-appearance: none;
+      appearance: none;
+    }
+
+    input:checked {
+      background-color: #000000;
+      background-size: 9px 9px;
+    }
+
+    input:focus {
+      outline-color: transparent;
+    }
+  }
+}

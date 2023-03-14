@@ -27,13 +27,18 @@ export default function Nav() {
     item.title.toLowerCase().includes(query)
   );
 
+  //Removes the filtered items from search if user clicks anywhere on the page
+  window.addEventListener("click", () => {
+    setQuery("");
+  });
+
   function SearchResult() {
     return (
       <div className="filteredItemContainer">
         {query.length > 0
           ? filteredData.map((item) => {
               return (
-                <Link to={`/product/${item.id}`}>
+                <Link onClick={() => setQuery("")} to={`/product/${item.id}`}>
                   <div className="filteredItem" key={item.id}>
                     {item.title}
                   </div>
@@ -92,6 +97,7 @@ export default function Nav() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               type="search"
+              placeholder="Search items"
             />
             <SearchResult />
           </div>
@@ -99,6 +105,7 @@ export default function Nav() {
 
         <div className="mobileSearch">
           <input
+            placeholder="Search items"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             type="search"
