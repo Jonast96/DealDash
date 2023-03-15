@@ -38,7 +38,11 @@ export default function Nav() {
         {query.length > 0
           ? filteredData.map((item) => {
               return (
-                <Link onClick={() => setQuery("")} to={`/product/${item.id}`}>
+                <Link
+                  key={item.id}
+                  onClick={() => setQuery("")}
+                  to={`/product/${item.id}`}
+                >
                   <div className="filteredItem" key={item.id}>
                     {item.title}
                   </div>

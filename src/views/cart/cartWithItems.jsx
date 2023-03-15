@@ -1,18 +1,10 @@
 import { CartContext } from "../../components/Cart";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import "../../styles/cart/cart.scss";
+import Summary from "./summary";
 
 export default function CartWithItems() {
   const { cart } = useContext(CartContext);
-
-  function calculateTotal(cart) {
-    let total = 0;
-    for (let i = 0; i < cart.length; i++) {
-      total += cart[i].price;
-    }
-    return total.toFixed(2);
-  }
 
   console.log(cart);
 
@@ -46,26 +38,13 @@ export default function CartWithItems() {
             );
           })}
         </div>
-
-        <div className="summary">
-          <h2>Your order</h2>
-          <div className="subtotalContainer">
-            <div className="subtotal">
-              <p>Subtotal:</p>
-              <p>{calculateTotal(cart)},-</p>
-            </div>
-            <div className="shipping">
-              <p>Shipping:</p>
-              <p>Free</p>
-            </div>
-          </div>
-          <div className="totalContainer">
-            <p className="total">Total:</p>
-            <p>{calculateTotal(cart)},-</p>
-          </div>
-          <Link to={"/checkout"}>
-            <button className="checkoutButton">Go to checkout</button>
-          </Link>
+        <div>
+          <Summary
+            title={"Your cart"}
+            cart={cart}
+            buttonName="Checkout"
+            linkTo={"/checkout"}
+          />
         </div>
       </div>
     </main>

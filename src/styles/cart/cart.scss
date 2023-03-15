@@ -1,6 +1,10 @@
 @import "../variables";
-
 .cart {
+  .button {
+    background-color: transparent;
+    padding: 0 15px;
+    font-size: 1.5rem;
+  }
   .main-content {
     padding: 20px;
   }
@@ -45,38 +49,6 @@
   .addRemoveButtons {
     display: flex;
     align-items: center;
-  }
-  .button {
-    background-color: transparent;
-    padding: 0 15px;
-    font-size: 1.5rem;
-  }
-  .checkoutButton {
-    width: 100%;
-    background-color: $primary-color;
-    color: white;
-    border-radius: 5px;
-    font-size: 1.3rem;
-    margin: 15px 0;
-  }
-
-  .summary {
-    margin: 20px;
-  }
-  .subtotal,
-  .shipping {
-    display: flex;
-    justify-content: space-between;
-  }
-  .subtotalContainer {
-    border-bottom: rgba(0, 0, 0, 0.315) solid 1px;
-    padding-bottom: 10px;
-  }
-  .totalContainer {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.5rem;
-    font-weight: 900;
   }
 
   @media screen and (min-width: 500px) {

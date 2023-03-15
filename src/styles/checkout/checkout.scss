@@ -1,23 +1,44 @@
 .checkoutContainer {
-  .checkoutForm {
-    display: grid;
-    gap: 30px;
-    grid-template-columns: 60% 40%;
+  h1 {
+    margin: 50px 0;
+    text-align: center;
+  }
+  .item {
+    display: flex;
+    justify-content: space-between;
+  }
+  .items {
+    margin-bottom: 20px;
+  }
+  .itemsContainer {
+    margin-bottom: 20px;
+  }
+  .summary {
+    margin: 0px;
+  }
+  .grid {
+    margin: 0 auto;
+  }
+
+  .input_sections {
+    margin-bottom: 40px;
   }
 
   .labelInput {
     display: flex;
     flex-direction: column;
-    max-width: 350px;
   }
   input {
     font-size: 1.1rem;
     border: none;
-    padding: 5px;
+    padding: 7px;
+    border-radius: 5px;
     margin-bottom: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 1px -1px;
   }
   label {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
   }
   .errorMessage {
     color: rgb(172, 2, 2);
@@ -26,11 +47,10 @@
   .categories {
     font-weight: 900;
     font-size: 1.2rem;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 
   .radioContainer {
-    max-width: 350px;
     display: flex;
     justify-content: space-between;
     input[type="radio"] {
@@ -41,6 +61,8 @@
       -ms-appearance: none;
       -o-appearance: none;
       appearance: none;
+      box-shadow: none;
+      border-radius: 7px;
     }
 
     input:checked {
@@ -50,6 +72,60 @@
 
     input:focus {
       outline-color: transparent;
+    }
+  }
+
+  .personal {
+    display: grid;
+  }
+  .debitContainer {
+    display: grid;
+    gap: 20px;
+    .debitSmall {
+      display: flex;
+      gap: 20px;
+      justify-content: space-around;
+      input {
+        max-width: 120px;
+      }
+    }
+  }
+}
+@media screen and (min-width: 950px) {
+  .checkoutContainer {
+    .checkoutForm {
+      display: grid;
+      grid-template-columns: 65% 35%;
+    }
+    .grid {
+      margin: 0px;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .checkoutContainer {
+    .inputRow {
+      display: flex;
+      gap: 20px;
+    }
+    .labelInput {
+      width: 100%;
+    }
+
+    .grid {
+      max-width: 600px;
+    }
+    .debitContainer {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      .debitSmall {
+        input {
+          max-width: 140px;
+        }
+      }
     }
   }
 }

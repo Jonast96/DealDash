@@ -1,47 +1,24 @@
-import React from "react";
+/**
+Checkout Component for completing the purchase.
+@module Checkout
+@default
+*/
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import "../../styles/checkout/checkout.scss";
+import Summary from "../cart/summary";
+import { schema } from "./schema";
+import { CartContext } from "../../components/Cart";
 
-const schema = yup.object().shape({
-  firstName: yup
-    .string()
-    .required("First name is required")
-    .min(3, "First name must be at least 3 characters"),
-  lastName: yup
-    .string()
-    .required("Last name is required")
-    .min(3, "Last name must be at least 3 characters"),
-  email: yup
-    .string()
-    .required("Email is required")
-    .email("Please enter a valid email")
-    .min(3, "Email must be at least 3 characters"),
-  phone: yup
-    .string()
-    .required("Phone is required")
-    .min(3, "Phone must be at least 3 characters"),
-  countryRegion: yup
-    .string()
-    .required("Country/Region is required")
-    .min(3, "Country/Region must be at least 3 characters"),
-  townCity: yup
-    .string()
-    .required("Town/city is required")
-    .min(3, "Town/city must be at least 3 characters"),
-  street: yup
-    .string()
-    .required("Street is required")
-    .min(3, "Street must be at least 3 characters"),
-  postcode: yup
-    .string()
-    .required("Postcode is required")
-    .min(3, "Postcode must be at least 3 characters"),
-  option: yup.string().required(),
-});
-
+/**
+Checkout Component.
+@function
+@returns {JSX.Element}
+*/
 export default function Checkout() {
+  const { cart } = useContext(CartContext);
+  const [debitContainer, setDebitContainer] = React.useState(false);
   const {
     register,
     handleSubmit,
@@ -50,10 +27,23 @@ export default function Checkout() {
     resolver: yupResolver(schema),
   });
 
+  /**
+Handle submit event.
+@function
+@param {object} data - The form data.
+@returns {void}
+*/
   const onSubmit = (data) => {
     console.log(data);
   };
 
+  /**
+Render Input field.
+@function
+@param {string} name - The name of the input field.
+@param {string} label - The label of the input field.
+@returns {JSX.Element}
+*/
   const renderInput = (name, label) => (
     <div className="labelInput">
       <span className="highlight"></span>
@@ -66,49 +56,137 @@ export default function Checkout() {
     </div>
   );
 
-  const renderRadio = (id, value) => (
+  /**
+Render Radio button.
+@function
+@param {string} id - The id of the radio button.
+@param {string} value - The value of the radio button.
+@param {function} onClick - The onClick event handler for the radio button.
+@returns {JSX.Element}
+*/
+  const renderRadio = (id, value, onClick) => (
     <div className="radioContainer">
-      <input type="radio" {...register("option")} value={value} id={id} />
+      <input
+        onClick={onClick}
+        type="radio"
+        {...register("option")}
+        value={value}
+        id={id}
+      />
       <label htmlFor={id}>{id}</label>
     </div>
   );
 
+  /**
+Show Debit container on Credit or debit card selection.
+@function
+@returns {void}
+*/
+  function showDebit() {
+    setDebitContainer(true);
+  }
+  /**
+Hide Debit container on Apple pay or Google pay selection.
+@function
+@returns {void}
+*/
+  function hideDebit() {
+    setDebitContainer(false);
+  }
+
+  /**
+Debit card container.
+@function
+@returns {JSX.Element}
+*/
+  function Debit() {
+    return debitContainer ? (
+      <div className="debitContainer">
+        {renderInput("cardNumber", "Card number")}
+        <div className="debitSmall">
+          {renderInput("expirationDate", "Expiration date")}
+          {renderInput("CVVCode", "CVV code")}
+        </div>
+      </div>
+    ) : (
+      ""
+    );
+  }
+
+  /**
+Handle button click event.
+@function
+@param {event} event - The button click event.
+@returns {void}
+*/
+  const handleButtonClick = (event) => {
+    event.preventDefault();
+    handleSubmit(onSubmit)();
+  };
   return (
     <div className="checkoutContainer main-content">
+      <h1>Checkout</h1>
       <form className="checkoutForm" onSubmit={handleSubmit(onSubmit)}>
         <div className="grid">
-          <div className="input_sections">
+          <div className="input_sections personal">
             <p className="categories">Personal information:</p>
-            {renderInput("firstName", "First name")}
-            {renderInput("lastName", "Last name")}
-            {renderInput("phone", "Phone")}
-            {renderInput("email", "Email")}
+            <div className="inputRow">
+              {renderInput("firstName", "First name")}
+              {renderInput("lastName", "Last name")}
+            </div>
+            <div className="inputRow">
+              {renderInput("phone", "Phone")}
+              {renderInput("email", "Email")}
+            </div>
           </div>
-          <div className="input_sections">
+          <div className="input_sections delivery">
             <p className="categories">Delivery details:</p>
-            {renderInput("countryRegion", "Country/Region")}
-            {renderInput("townCity", "Town/city")}
-            {renderInput("street", "Street")}
-            {renderInput("postcode", "Postcode")}
+            <div className="inputRow">
+              {renderInput("countryRegion", "Country/Region")}
+              {renderInput("townCity", "Town/city")}
+            </div>
+            <div className="inputRow">
+              {renderInput("street", "Street")}
+              {renderInput("postcode", "Postcode")}
+            </div>
           </div>
 
           <div className="input_sections">
             <p className="categories">Payment:</p>
             <label>Choose an option:</label>
-            {renderRadio("Apple pay", "Apple pay", "Apple pay")}
-            {renderRadio("Google pay", "Google pay", "Google pay")}
+            {renderRadio("Apple pay", "Apple pay", hideDebit)}
+            {renderRadio("Google pay", "Google pay", hideDebit)}
             {renderRadio(
               "Credit or debit card",
               "Credit or debit card",
-              "Credit or debit card"
+              showDebit
             )}
+            <Debit />
+
             {errors.option && (
               <span className="errorMessage">{errors.option.message}</span>
             )}
           </div>
         </div>
         <div>
-          <button type="submit">Submit</button>
+          <div className="itemsContainer">
+            <h2>Your items</h2>
+            {cart.map((item) => {
+              return (
+                <div key={item.id} className="item">
+                  <p>{item.title}</p>
+                  <p>{item.price},-</p>
+                </div>
+              );
+            })}
+          </div>
+          <Summary
+            type={"submit"}
+            cart={cart}
+            buttonName="Complete purchase"
+            linkTo={"/"}
+            onButtonClick={handleButtonClick}
+          />
         </div>
       </form>
     </div>
