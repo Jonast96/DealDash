@@ -1,43 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-
-const schema = yup.object().shape({
-  firstName: yup
-    .string()
-    .required("First name is required")
-    .min(3, "First name must be at least 3 characters"),
-  lastName: yup
-    .string()
-    .required("Last name is required")
-    .min(3, "Last name must be at least 3 characters"),
-  email: yup
-    .string()
-    .required("Email is required")
-    .email("Please enter a valid email")
-    .min(3, "Email must be at least 3 characters"),
-  phone: yup
-    .string()
-    .required("Phone is required")
-    .min(3, "Phone must be at least 3 characters"),
-  countryRegion: yup
-    .string()
-    .required("Country/Region is required")
-    .min(3, "Country/Region must be at least 3 characters"),
-  townCity: yup
-    .string()
-    .required("Town/city is required")
-    .min(3, "Town/city must be at least 3 characters"),
-  street: yup
-    .string()
-    .required("Street is required")
-    .min(3, "Street must be at least 3 characters"),
-  postcode: yup
-    .string()
-    .required("Postcode is required")
-    .min(3, "Postcode must be at least 3 characters"),
-});
+import { supportSchema } from "./supportSchema";
+import image from "../../media/question.jpg";
+import "../../styles/support/support.scss";
 
 export default function Support() {
   const {
@@ -45,64 +11,58 @@ export default function Support() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(supportSchema),
   });
 
   const onSubmit = (data) => {
     console.log(data);
   };
 
+  /**
+Render Input field.
+@function
+@param {string} name - The name of the input field.
+@param {string} label - The label of the input field.
+@returns {JSX.Element}
+*/
+  const renderInput = (name, label) => (
+    <div className="labelInput">
+      <span className="highlight"></span>
+      <span className="bar"></span>
+      <label htmlFor={name}>{label}</label>
+      {name === "body" ? (
+        <textarea {...register(name)} />
+      ) : (
+        <input {...register(name)} />
+      )}
+      {errors[name] && (
+        <span className="errorMessage">{errors[name].message}</span>
+      )}
+    </div>
+  );
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label htmlFor="firstName">First name</label>
-        <input {...register("firstName")} />
-        {errors.firstName && <span>{errors.firstName.message}</span>}
-      </div>
-
-      <div>
-        <label htmlFor="lastName">Last name</label>
-        <input {...register("lastName")} />
-        {errors.lastName && <span>{errors.lastName.message}</span>}
-      </div>
-
-      <div>
-        <label htmlFor="Phone">Phone</label>
-        <input {...register("Phone")} />
-        {errors.phone && <span>{errors.phone.message}</span>}
-      </div>
-
-      <div>
-        <label htmlFor="email">Email</label>
-        <input {...register("email")} />
-        {errors.email && <span>{errors.email.message}</span>}
-      </div>
-
-      <div>
-        <label htmlFor="countryRegion">Country/Region</label>
-        <input {...register("countryRegion")} />
-        {errors.countryRegion && <span>{errors.countryRegion.message}</span>}
-      </div>
-
-      <div>
-        <label htmlFor="townCity">Town/city</label>
-        <input {...register("townCity")} />
-        {errors.townCity && <span>{errors.townCity.message}</span>}
-      </div>
-
-      <div>
-        <label htmlFor="street">Street</label>
-        <input {...register("street")} />
-        {errors.street && <span>{errors.street.message}</span>}
-      </div>
-
-      <div>
-        <label htmlFor="postcode">Postcode</label>
-        <input {...register("postcode")} />
-        {errors.postcode && <span>{errors.postcode.message}</span>}
-      </div>
-
-      <button type="submit">Submit</button>
-    </form>
+    <main className=" support">
+      <img src={image} alt="" />
+      <h1>Support</h1>
+      <p>
+        Need help with your order? You've come to the right place. DealDash is
+        committed to providing our customers with exceptional support to ensure
+        your shopping experience is as seamless as possible.
+      </p>
+      <p>
+        If you have any questions or concerns about our products, orders, or
+        services, please don't hesitate to reach out to our support team using
+        the contact form below. We're here to assist you with anything you need,
+        from order status updates to product recommendations and more.
+      </p>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {renderInput("firstName", "First name")}
+        {renderInput("lastName", "Last name")}
+        {renderInput("email", "Email")}
+        {renderInput("body", "Body")}
+        <button type="submit">Submit</button>
+      </form>
+    </main>
   );
 }

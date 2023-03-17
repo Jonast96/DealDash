@@ -29,7 +29,11 @@ export default function CartWithItems() {
                   <button className="button">+</button>
                 </div>
                 <div>
-                  <p>{item.price}</p>
+                  {item.discountedPrice === item.price ? (
+                    `${item.price},-`
+                  ) : (
+                    <span>{item.discountedPrice},-</span>
+                  )}
                 </div>
                 <div>
                   <button className="button">X</button>

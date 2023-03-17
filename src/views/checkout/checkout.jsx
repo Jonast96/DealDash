@@ -10,7 +10,6 @@ import "../../styles/checkout/checkout.scss";
 import Summary from "../cart/summary";
 import { schema } from "./schema";
 import { CartContext } from "../../components/Cart";
-
 /**
 Checkout Component.
 @function
@@ -124,7 +123,7 @@ Handle button click event.
     handleSubmit(onSubmit)();
   };
   return (
-    <div className="checkoutContainer main-content">
+    <main className="checkoutContainer main-content">
       <h1>Checkout</h1>
       <form className="checkoutForm" onSubmit={handleSubmit(onSubmit)}>
         <div className="grid">
@@ -189,6 +188,6 @@ Handle button click event.
           />
         </div>
       </form>
-    </div>
+    </main>
   );
 }

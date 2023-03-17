@@ -3,9 +3,14 @@ import "../../styles/cart/summary.scss";
 
 export default function Summary(props) {
   function calculateTotal(cart) {
+    const prices = cart.map((item) => {
+      return item.discountedPrice === item.price
+        ? item.price
+        : item.discountedPrice;
+    });
     let total = 0;
-    for (let i = 0; i < cart.length; i++) {
-      total += cart[i].price;
+    for (let i = 0; i < prices.length; i++) {
+      total += prices[i];
     }
     return total.toFixed(2);
   }

@@ -22,6 +22,7 @@ export const schema = yup.object().shape({
     .string()
     .required("Country/Region is required")
     .min(3, "Country/Region must be at least 3 characters"),
+
   townCity: yup.string().required("Town/city is required"),
   street: yup.string().required("Street is required"),
   postcode: yup.string().required("Postcode is required"),
