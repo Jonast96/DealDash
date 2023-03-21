@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import cartImg from "../media/cart.png";
 import { CartContext } from "./Cart";
-import useApiCall from "./apiHook";
+import useApiCall from "../hooks/useApiCall";
 
 export default function Nav() {
   const [query, setQuery] = React.useState("");

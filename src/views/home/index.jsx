@@ -2,7 +2,7 @@ import "../../styles/home/header.scss";
 import Header from "./heading";
 import ProductCard from "./product-card";
 import React from "react";
-import useApiCall from "../../components/apiHook";
+import useApiCall from "../../hooks/useApiCall";
 export default function Home() {
   const { data, error, loading } = useApiCall(
     "https://api.noroff.dev/api/v1/online-shop"

@@ -72,6 +72,7 @@ header {
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-bottom: 10px;
       p {
         font-size: 1.2rem;
         margin: auto;
@@ -92,6 +93,8 @@ header {
     .dropdown.active {
       max-height: 500px;
     }
+
+    
 
     /* Styles for the hamburger icon */
     .hamburger {

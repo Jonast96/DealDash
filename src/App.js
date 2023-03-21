@@ -2,8 +2,8 @@
 import { Routes, Route } from 'react-router-dom';
 
 //Component imports
-import Nav from './components/header';
-import Footer from './components/footer';
+import Nav from './components/Header';
+import Footer from './components/Footer';
 import Deals from './views/deals/deals';
 import Home from './views/home';
 import Support from './views/support/support';

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import useApiCall from "../../components/apiHook";
+import useApiCall from "../../hooks/useApiCall";
 import "../../styles/singleItem/singleItemCard.scss";
 import { CartContext } from "../../components/Cart";
 import Reviews from "./reviews";
