@@ -2,7 +2,6 @@
 import { Routes, Route } from 'react-router-dom';
 
 //Component imports
-import Footer from './components/Footer';
 import Deals from './views/deals/deals';
 import Home from './views/home';
 import Support from './views/support/support';
@@ -14,6 +13,7 @@ import "./styles/styles.scss"
 import React from 'react';
 import { CartProvider } from './components/Cart';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 function Layout(props) {
   return (
