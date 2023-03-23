@@ -1,9 +1,7 @@
-export default function Footer () {
-    return (
-        <footer>
-
-        <p>DealDash</p>
-
-        </footer>
-    )
+export default function Footer() {
+  return (
+    <footer>
+      <p>DealDash</p>
+    </footer>
+  );
 }
