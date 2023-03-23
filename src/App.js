@@ -2,7 +2,6 @@
 import { Routes, Route } from 'react-router-dom';
 
 //Component imports
-import Nav from './components/Header';
 import Footer from './components/Footer';
 import Deals from './views/deals/deals';
 import Home from './views/home';
@@ -14,11 +13,12 @@ import CheckOut from './views/checkout/checkout';
 import "./styles/styles.scss"
 import React from 'react';
 import { CartProvider } from './components/Cart';
+import Header from './components/Header';
 
 function Layout(props) {
   return (
     <>
-      <Nav />
+      <Header />
       {props.children}
       <Footer />
     </>

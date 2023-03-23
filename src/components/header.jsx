@@ -4,7 +4,7 @@ import cartImg from "../media/cart.png";
 import { CartContext } from "./Cart";
 import useApiCall from "../hooks/useApiCall";
 
-export default function Nav() {
+export default function Header() {
   const [query, setQuery] = React.useState("");
 
   const [dropDownMenu, setDropDownMenu] = React.useState(false);
