@@ -10,13 +10,15 @@ import "../../styles/checkout/checkout.scss";
 import Summary from "../cart/summary";
 import { schema } from "./schema";
 import { CartContext } from "../../components/Cart";
+import { useNavigate } from "react-router-dom";
 /**
 Checkout Component.
 @function
 @returns {JSX.Element}
 */
 export default function Checkout() {
-  const { cart } = useContext(CartContext);
+  const navigate = useNavigate();
+  const { cart, clearCart } = useContext(CartContext);
   const [debitContainer, setDebitContainer] = React.useState(false);
   const {
     register,
@@ -34,6 +36,8 @@ Handle submit event.
 */
   const onSubmit = (data) => {
     console.log(data);
+    navigate("/purchaseComplete");
+    clearCart();
   };
 
   /**

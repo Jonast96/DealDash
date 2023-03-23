@@ -14,7 +14,7 @@ import React from 'react';
 import { CartProvider } from './components/Cart';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
+import PurchaseComplete from "./views/purchaseComplete/purchaseComplete"
 function Layout(props) {
   return (
     <>
@@ -41,6 +41,7 @@ function App() {
             <Route path='/cart' element={<Cart />} />
             <Route path='/product/:id' element={<SingleItem />} />
             <Route path='/checkout' element={<CheckOut />} />
+            <Route path='/purchaseComplete' element={<PurchaseComplete />} />
           </Routes>
         </Layout>
       </div>

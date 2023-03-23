@@ -54,6 +54,10 @@ export default function Header() {
     );
   }
 
+  const getTotalItems = () => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
+  };
+
   return (
     <header>
       <nav className="nav">
@@ -81,7 +85,7 @@ export default function Header() {
             <Link to={"/cart"}>
               <div className="cartContainer">
                 <img src={cartImg} alt={cartImg}></img>
-                <p>{cart.length}</p>
+                <p>{getTotalItems()}</p>
               </div>
             </Link>
           </div>
