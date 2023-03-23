@@ -5,8 +5,8 @@ export default function Summary(props) {
   function calculateTotal(cart) {
     const prices = cart.map((item) => {
       return item.discountedPrice === item.price
-        ? item.price
-        : item.discountedPrice;
+        ? item.price * item.quantity
+        : item.discountedPrice * item.quantity;
     });
     let total = 0;
     for (let i = 0; i < prices.length; i++) {

@@ -2,9 +2,11 @@ import { CartContext } from "../../components/Cart";
 import React, { useContext } from "react";
 import "../../styles/cart/cart.scss";
 import Summary from "./summary";
+import DisplaySalePriceIfOnSale from "../../components/DisplaySalePriceIfOnSale";
 
 export default function CartWithItems() {
-  const { cart } = useContext(CartContext);
+  const { cart, removeFromCart, increaseQuantity, decreaseQuantity } =
+    useContext(CartContext);
 
   console.log(cart);
 
@@ -24,19 +26,31 @@ export default function CartWithItems() {
                   <p className="id">{item.id}</p>
                 </div>
                 <div className="addRemoveButtons">
-                  <button className="button">-</button>
-                  <p>0</p>
-                  <button className="button">+</button>
+                  <button
+                    onClick={() => decreaseQuantity(item.id)}
+                    className="button"
+                  >
+                    -
+                  </button>
+                  <p>{item.quantity}</p>
+                  <button
+                    onClick={() => increaseQuantity(item.id)}
+                    className="button"
+                  >
+                    +
+                  </button>
                 </div>
+                <DisplaySalePriceIfOnSale
+                  normalPrice={item.price * item.quantity}
+                  salePrice={item.discountedPrice * item.quantity}
+                />
                 <div>
-                  {item.discountedPrice === item.price ? (
-                    `${item.price},-`
-                  ) : (
-                    <span>{item.discountedPrice},-</span>
-                  )}
-                </div>
-                <div>
-                  <button className="button">X</button>
+                  <button
+                    onClick={() => removeFromCart(item.id)}
+                    className="button"
+                  >
+                    X
+                  </button>
                 </div>
               </div>
             );
