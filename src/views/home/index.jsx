@@ -1,5 +1,5 @@
 import "../../styles/home/header.scss";
-import Header from "./heading";
+import Heading from "./heading";
 import ProductCard from "./product-card";
 import React from "react";
 import useApiCall from "../../hooks/useApiCall";
@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <main className="main-content">
-      <Header />
+      <Heading />
       <div className="product-card-container">
         {data.map((item) => {
           return (

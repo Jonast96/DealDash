@@ -1,7 +1,7 @@
 import "../../styles/home/header.scss";
 import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function Heading() {
   return (
     <div className="heading">
       <div className="text">
