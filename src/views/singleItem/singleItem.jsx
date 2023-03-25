@@ -4,6 +4,7 @@ import useApiCall from "../../hooks/useApiCall";
 import "../../styles/singleItem/singleItemCard.scss";
 import { CartContext } from "../../components/Cart";
 import Reviews from "./reviews";
+import LoadingPage from "../../components/Loader";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,7 +19,7 @@ export default function SingleItem() {
   const { addToCart } = useContext(CartContext);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <LoadingPage />;
   }
 
   if (error) {
