@@ -3,7 +3,7 @@
 
 * [x] ~~_fix cart count when value of items more than 1_~~ [2023-03-23]
 * [x] ~~_fix summary when value of items more than 1_~~ [2023-03-23]
-* [ ] Show confirmation on form submission contact
+* [x] ~~_Show confirmation on form submission contact_~~ [2023-03-25]
 * [x] ~~_Show confirmation on form submission checkout_~~ [2023-03-23]
 
 - [ ] Make deals page

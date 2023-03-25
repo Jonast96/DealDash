@@ -4,8 +4,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { supportSchema } from "./supportSchema";
 import image from "../../media/question.jpg";
 import "../../styles/support/support.scss";
+import { useNavigate } from "react-router-dom";
 
 export default function Support() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -16,6 +18,7 @@ export default function Support() {
 
   const onSubmit = (data) => {
     console.log(data);
+    navigate("/");
   };
 
   /**
