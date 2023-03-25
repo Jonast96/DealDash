@@ -5,6 +5,7 @@ import "../../styles/singleItem/singleItemCard.scss";
 import { CartContext } from "../../components/Cart";
 import Reviews from "./reviews";
 import LoadingPage from "../../components/Loader";
+import savedAmountCalculator from "../../components/savedAmountCalculator";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -54,11 +55,18 @@ export default function SingleItem() {
     }
   }
 
+  const savedAmount = savedAmountCalculator(data.price, data.discountedPrice);
+
   return (
     <main className="main-content singleItem">
       <div className="singleItemMain">
         <h2 className="mobileTitle">{data.title}</h2>
         <div className="img-div">
+          {data.price !== data.discountedPrice ? (
+            <p className="discount">SAVE {savedAmount},-</p>
+          ) : (
+            ""
+          )}
           <img className="img" src={data.imageUrl} alt={data.imageUrl}></img>
         </div>
         <div>

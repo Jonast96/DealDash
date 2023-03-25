@@ -5,6 +5,19 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 20px;
 }
+.img-div {
+  position: relative;
+}
+.discount {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: red;
+  color: white;
+  font-weight: 900;
+  padding: 10px;
+  border-radius: 10px 0 10px 0;
+}
 
 .card {
   width: 100%;
@@ -27,6 +40,9 @@
   }
   p {
     font-size: 1.5rem;
+  }
+  .discount {
+    font-size: 1rem;
   }
   .button {
     margin: 10px 0;

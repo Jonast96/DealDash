@@ -37,6 +37,8 @@ export default function Home() {
                   </span>
                 )
               }
+              originalPrice={item.price}
+              discountedPrice={item.discountedPrice}
               rating={item.rating}
               reviews={item.reviews.length}
             />
