@@ -11,7 +11,7 @@
   width: 100%;
   margin-top: 15px;
   text-align: center;
-  background-color: $primary-color;
+  background-color: #121921;
   .heading::before {
     position: absolute;
     top: 0;
@@ -31,12 +31,12 @@
     z-index: 1;
     filter: drop-shadow(0 0 100px rgba(0, 0, 0, 1));
     font-size: 1.3rem;
-    font-family: $main-font;
   }
 
   .button {
+    padding: 10px 20px;
     margin-top: 20px;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -47,7 +47,7 @@
     background-position: right 100%;
     max-width: 1400px;
     margin: 50px auto;
-    box-shadow: 2px 2px 5px black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     .text {
       max-width: 600px;

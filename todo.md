@@ -6,9 +6,12 @@
 * [x] ~~_Show confirmation on form submission contact_~~ [2023-03-25]
 * [x] ~~_Show confirmation on form submission checkout_~~ [2023-03-23]
 
-- [ ] Make deals page
+- [x] ~~_Make deals page_~~ [2023-03-27]
 - [ ] Rework header and cart
 
-* [ ] display saved amount if item is on sale
-* [ ] New loading screen
-* [ ] fix icons with payment methods
+* [ ] Restyle searchBar
+
+* [x] ~~_display saved amount if item is on sale_~~ [2023-03-26]
+* [x] ~~_New loading screen_~~ [2023-03-26]
+* [ ] Show the value of number of items in cart
+* [ ] Fix floating footer

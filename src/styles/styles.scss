@@ -35,12 +35,18 @@ html {
 button {
   font-size: 1rem;
   font-family: $heading-font;
-  background: $secondary-color;
+  background: $alt-color;
   border: 0;
   border-radius: 20px;
   padding: 10px 20px;
   font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  background-color: darken($alt-color, 10%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .app {

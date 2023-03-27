@@ -93,9 +93,7 @@ export default function Header() {
             <li>
               <Link to={"/deals"}>Deals</Link>
             </li>
-            <li>
-              <Link to={"/whats-new"}>What's New</Link>
-            </li>
+
             <li>
               <Link to={"/support"}>Support</Link>
             </li>

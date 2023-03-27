@@ -63,7 +63,7 @@ export default function SingleItem() {
         <h2 className="mobileTitle">{data.title}</h2>
         <div className="img-div">
           {data.price !== data.discountedPrice ? (
-            <p className="discount">SAVE {savedAmount},-</p>
+            <p className="discount">SAVE {savedAmount.toFixed(2)},-</p>
           ) : (
             ""
           )}

@@ -13,15 +13,7 @@
 .img-div {
   position: relative;
 }
-.discount {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: red;
-  color: white;
-  font-weight: 900;
-  padding: 10px;
-}
+
 .singleItem {
   position: relative;
   .singleItemMain {
@@ -62,8 +54,6 @@
     color: goldenrod;
   }
   button {
-    background-color: $primary-color;
-    color: white;
     margin: 20px 0;
     font-size: 1.8rem;
     width: 100%;

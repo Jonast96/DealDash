@@ -1,0 +1,49 @@
+@import "../variables";
+
+.on-sale-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 400px;
+  background-image: linear-gradient(135deg, $alt-color 0%, $primary-color 100%);
+  color: #f0f0f0;
+  text-align: center;
+  margin: 50px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.sale-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.sale-text {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  max-width: 80%;
+}
+
+@media screen and (max-width: 768px) {
+  .sale-title {
+    font-size: 2rem;
+  }
+  .sale-text {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sale-title {
+    font-size: 1.5rem;
+  }
+  .sale-text {
+    font-size: 1rem;
+  }
+  .on-sale-header {
+    height: 300px;
+  }
+}
