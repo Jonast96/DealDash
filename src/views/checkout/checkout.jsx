@@ -177,7 +177,9 @@ Handle button click event.
             {cart.map((item) => {
               return (
                 <div key={item.id} className="item">
-                  <p>{item.title}</p>
+                  <p>
+                    {item.title} x{item.quantity}
+                  </p>
                   <p>{item.price},-</p>
                 </div>
               );

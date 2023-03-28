@@ -45,27 +45,29 @@ Render Input field.
   );
 
   return (
-    <main className=" support">
-      <img src={image} alt="" />
-      <h1>Support</h1>
-      <p>
-        Need help with your order? You've come to the right place. DealDash is
-        committed to providing our customers with exceptional support to ensure
-        your shopping experience is as seamless as possible.
-      </p>
-      <p>
-        If you have any questions or concerns about our products, orders, or
-        services, please don't hesitate to reach out to our support team using
-        the contact form below. We're here to assist you with anything you need,
-        from order status updates to product recommendations and more.
-      </p>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {renderInput("firstName", "First name")}
-        {renderInput("lastName", "Last name")}
-        {renderInput("email", "Email")}
-        {renderInput("body", "Body")}
-        <button type="submit">Submit</button>
-      </form>
+    <main className="main-content support">
+      <div className="support-content">
+        <img src={image} alt="" />
+        <h1>Support</h1>
+        <p>
+          Need help with your order? You've come to the right place. DealDash is
+          committed to providing our customers with exceptional support to
+          ensure your shopping experience is as seamless as possible.
+        </p>
+        <p>
+          If you have any questions or concerns about our products, orders, or
+          services, please don't hesitate to reach out to our support team using
+          the contact form below. We're here to assist you with anything you
+          need, from order status updates to product recommendations and more.
+        </p>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {renderInput("firstName", "First name")}
+          {renderInput("lastName", "Last name")}
+          {renderInput("email", "Email")}
+          {renderInput("body", "Body")}
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </main>
   );
 }

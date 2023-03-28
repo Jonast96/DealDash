@@ -44,7 +44,8 @@ export default function Header() {
                   to={`/product/${item.id}`}
                 >
                   <div className="filteredItem" key={item.id}>
-                    {item.title}
+                    <p>{item.title}</p>
+                    <p>{item.price},-</p>
                   </div>
                 </Link>
               );

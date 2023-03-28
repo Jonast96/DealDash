@@ -13,5 +13,5 @@
 
 * [x] ~~_display saved amount if item is on sale_~~ [2023-03-26]
 * [x] ~~_New loading screen_~~ [2023-03-26]
-* [ ] Show the value of number of items in cart
-* [ ] Fix floating footer
+* [x] ~~_Show the value of number of items in cart_~~ [2023-03-28]
+* [x] ~~_Fix floating footer_~~ [2023-03-28]

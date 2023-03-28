@@ -14,10 +14,13 @@ import { CartProvider } from './components/Cart';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import PurchaseComplete from "./views/purchaseComplete/purchaseComplete"
+import ScrollToTop from './components/ScrollToTop';
+
 function Layout(props) {
   return (
     <>
       <Header />
+      <ScrollToTop />
       {props.children}
       <Footer />
     </>
