@@ -5,6 +5,13 @@
   margin: 0;
   padding: 0;
 }
+.loading-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
 
 a,
 h1,
@@ -27,13 +34,19 @@ html {
 
 button {
   font-size: 1rem;
-  font-family: $heading-font;
-  background: $secondary-color;
+  background: $alt-color;
   border: 0;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 10px 20px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  background-color: darken($alt-color, 10%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: $secondary-text;
 }
 
 .app {
@@ -44,6 +57,7 @@ button {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 10px;
+  min-height: 100vh;
 }
 
 header {
@@ -93,8 +107,6 @@ header {
     .dropdown.active {
       max-height: 500px;
     }
-
-    
 
     /* Styles for the hamburger icon */
     .hamburger {
@@ -167,7 +179,6 @@ header {
 }
 
 footer {
-  margin-top: 50px;
   background-color: $primary-color;
   padding: 20px 0;
 
@@ -186,7 +197,6 @@ footer {
 
     nav {
       flex-direction: row;
-      gap: 50px;
       padding: 20px;
 
       ul {

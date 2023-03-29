@@ -4,15 +4,35 @@ import cartImg from "../media/cart.png";
 import { CartContext } from "./Cart";
 import useApiCall from "../hooks/useApiCall";
 
+/**
+ * Header component displaying the navigation bar and search functionality
+ * @returns {JSX.Element} Header component
+ */
 export default function Header() {
+  /**
+   * State for the search query
+   * @type {string}
+   */
   const [query, setQuery] = React.useState("");
 
+  /**
+   * State for dropdown menu visibility
+   * @type {boolean}
+   */
   const [dropDownMenu, setDropDownMenu] = React.useState(false);
 
+  /**
+   * Cart context object for accessing cart items
+   * @type {object}
+   */
   const { cart } = useContext(CartContext);
 
+  /**
+   * API data, error, and loading states
+   * @type {object}
+   */
   const { data, error, loading } = useApiCall(
-    `https://api.noroff.dev/api/v1/online-shop`
+    "https://api.noroff.dev/api/v1/online-shop"
   );
 
   if (loading) {
@@ -23,15 +43,25 @@ export default function Header() {
     return <p>An error occurred: {error.message}</p>;
   }
 
+  /**
+   * Filtered data based on the search query
+   * @type {Array}
+   */
   const filteredData = data.filter((item) =>
     item.title.toLowerCase().includes(query)
   );
 
-  //Removes the filtered items from search if user clicks anywhere on the page
+  /**
+   * Clears the search query and hides the filtered items when the user clicks anywhere on the page
+   */
   window.addEventListener("click", () => {
     setQuery("");
   });
 
+  /**
+   * Search result component displaying the filtered items
+   * @returns {JSX.Element} Search result component
+   */
   function SearchResult() {
     return (
       <div className="filteredItemContainer">
@@ -44,7 +74,8 @@ export default function Header() {
                   to={`/product/${item.id}`}
                 >
                   <div className="filteredItem" key={item.id}>
-                    {item.title}
+                    <p>{item.title}</p>
+                    <p>{item.price},-</p>
                   </div>
                 </Link>
               );
@@ -53,6 +84,15 @@ export default function Header() {
       </div>
     );
   }
+
+  /**
+   * Gets the total number of items in the cart
+   * @function
+   * @returns {number} Total number of items in the cart
+   */
+  const getTotalItems = () => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
+  };
 
   return (
     <header>
@@ -81,7 +121,7 @@ export default function Header() {
             <Link to={"/cart"}>
               <div className="cartContainer">
                 <img src={cartImg} alt={cartImg}></img>
-                <p>{cart.length}</p>
+                <p>{getTotalItems()}</p>
               </div>
             </Link>
           </div>
@@ -89,9 +129,7 @@ export default function Header() {
             <li>
               <Link to={"/deals"}>Deals</Link>
             </li>
-            <li>
-              <Link to={"/whats-new"}>What's New</Link>
-            </li>
+
             <li>
               <Link to={"/support"}>Support</Link>
             </li>

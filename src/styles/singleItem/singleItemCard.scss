@@ -10,6 +10,10 @@
   }
 }
 
+.img-div {
+  position: relative;
+}
+
 .singleItem {
   position: relative;
   .singleItemMain {
@@ -50,8 +54,6 @@
     color: goldenrod;
   }
   button {
-    background-color: $primary-color;
-    color: white;
     margin: 20px 0;
     font-size: 1.8rem;
     width: 100%;

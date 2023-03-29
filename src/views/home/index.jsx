@@ -3,13 +3,14 @@ import Heading from "./heading";
 import ProductCard from "./product-card";
 import React from "react";
 import useApiCall from "../../hooks/useApiCall";
+import LoadingPage from "../../components/Loader";
 export default function Home() {
   const { data, error, loading } = useApiCall(
     "https://api.noroff.dev/api/v1/online-shop"
   );
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <LoadingPage />;
   }
   if (error) {
     return <p>An error occurred: {error.message}</p>;
@@ -36,6 +37,8 @@ export default function Home() {
                   </span>
                 )
               }
+              originalPrice={item.price}
+              discountedPrice={item.discountedPrice}
               rating={item.rating}
               reviews={item.reviews.length}
             />

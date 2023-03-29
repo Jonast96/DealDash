@@ -4,6 +4,8 @@ import useApiCall from "../../hooks/useApiCall";
 import "../../styles/singleItem/singleItemCard.scss";
 import { CartContext } from "../../components/Cart";
 import Reviews from "./reviews";
+import LoadingPage from "../../components/Loader";
+import savedAmountCalculator from "../../components/savedAmountCalculator";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,7 +20,7 @@ export default function SingleItem() {
   const { addToCart } = useContext(CartContext);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <LoadingPage />;
   }
 
   if (error) {
@@ -53,11 +55,18 @@ export default function SingleItem() {
     }
   }
 
+  const savedAmount = savedAmountCalculator(data.price, data.discountedPrice);
+
   return (
     <main className="main-content singleItem">
       <div className="singleItemMain">
         <h2 className="mobileTitle">{data.title}</h2>
         <div className="img-div">
+          {data.price !== data.discountedPrice ? (
+            <p className="discount">SAVE {savedAmount.toFixed(2)},-</p>
+          ) : (
+            ""
+          )}
           <img className="img" src={data.imageUrl} alt={data.imageUrl}></img>
         </div>
         <div>
@@ -91,7 +100,7 @@ export default function SingleItem() {
           </button>
           <ToastContainer
             position="top-center"
-            autoClose={5000}
+            autoClose={1000}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick

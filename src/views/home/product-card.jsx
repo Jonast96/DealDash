@@ -1,6 +1,7 @@
 import "../../styles/home/product-card.scss";
 import React from "react";
 import { Link } from "react-router-dom";
+import savedAmountCalculator from "../../components/savedAmountCalculator";
 
 export default function ProductCard(props) {
   const rating = Math.round(props.rating);
@@ -21,10 +22,22 @@ export default function ProductCard(props) {
     }
   }
 
+  const savedAmount = savedAmountCalculator(
+    props.originalPrice,
+    props.discountedPrice
+  );
+
   return (
     <div key={props.id} className="card">
       <Link to={`/product/${props.id}`}>
-        <img src={props.img} alt={props.title} />
+        <div className="img-div">
+          {props.originalPrice !== props.discountedPrice ? (
+            <p className="discount">SAVE {savedAmount.toFixed(2)},-</p>
+          ) : (
+            ""
+          )}
+          <img src={props.img} alt={props.title} />
+        </div>
       </Link>
 
       <div className="card-info">
