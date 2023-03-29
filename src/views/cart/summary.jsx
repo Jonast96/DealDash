@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom";
 import "../../styles/cart/summary.scss";
 
+/**
+ * Summary component that displays the cart subtotal, shipping, and total
+ * @param {Object} props - Properties passed to the component
+ * @returns {JSX.Element} Summary component
+ */
 export default function Summary(props) {
+  /**
+   * Calculate the total cost of items in the cart
+   * @param {Array} cart - Array of cart items
+   * @returns {string} Total cost of items in the cart, formatted as a string with two decimal places
+   */
   function calculateTotal(cart) {
     const prices = cart.map((item) => {
       return item.discountedPrice === item.price

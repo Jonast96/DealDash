@@ -4,11 +4,17 @@ import "../../styles/cart/cart.scss";
 import Summary from "./summary";
 import DisplaySalePriceIfOnSale from "../../components/DisplaySalePriceIfOnSale";
 
+/**
+ * CartWithItems component that displays a list of items in the cart
+ * @returns {JSX.Element} CartWithItems component
+ */
 export default function CartWithItems() {
+  /**
+   * Cart context object for accessing and modifying cart items
+   * @type {object}
+   */
   const { cart, removeFromCart, increaseQuantity, decreaseQuantity } =
     useContext(CartContext);
-
-  console.log(cart);
 
   return (
     <main className="main-content cart">
