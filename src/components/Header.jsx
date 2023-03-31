@@ -70,7 +70,10 @@ export default function Header() {
               return (
                 <Link
                   key={item.id}
-                  onClick={() => setQuery("")}
+                  onClick={() => {
+                    setQuery("");
+                    setDropDownMenu(false);
+                  }}
                   to={`/product/${item.id}`}
                 >
                   <div className="filteredItem" key={item.id}>
@@ -110,7 +113,11 @@ export default function Header() {
           </div>
 
           <h1>
-            <Link className="h1" to={"/"}>
+            <Link
+              onClick={() => setDropDownMenu(false)}
+              className="h1"
+              to={"/"}
+            >
               DealDash
             </Link>
           </h1>
@@ -118,7 +125,7 @@ export default function Header() {
 
         <div className={dropDownMenu ? "dropdown active" : "dropdown"}>
           <div className="flex-item center">
-            <Link to={"/cart"}>
+            <Link onClick={() => setDropDownMenu(false)} to={"/cart"}>
               <div className="cartContainer">
                 <img src={cartImg} alt={cartImg}></img>
                 <p>{getTotalItems()}</p>
@@ -127,11 +134,15 @@ export default function Header() {
           </div>
           <ul className="flex-item">
             <li>
-              <Link to={"/deals"}>Deals</Link>
+              <Link onClick={() => setDropDownMenu(false)} to={"/deals"}>
+                Deals
+              </Link>
             </li>
 
             <li>
-              <Link to={"/support"}>Support</Link>
+              <Link onClick={() => setDropDownMenu(false)} to={"/support"}>
+                Support
+              </Link>
             </li>
           </ul>
           <div className="desktopSearch">

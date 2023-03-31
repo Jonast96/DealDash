@@ -8,10 +8,12 @@
 
 - [x] ~~_Make deals page_~~ [2023-03-27]
 - [ ] Rework header and cart
+- [x] ~~_Close mobile nav on click_~~ [2023-03-30]
 
-* [ ] Restyle searchBar
+* [x] ~~_Restyle searchBar_~~ [2023-03-30]
 
 * [x] ~~_display saved amount if item is on sale_~~ [2023-03-26]
 * [x] ~~_New loading screen_~~ [2023-03-26]
 * [x] ~~_Show the value of number of items in cart_~~ [2023-03-28]
 * [x] ~~_Fix floating footer_~~ [2023-03-28]
+* [x] ~~_Clear cart after order complete_~~ [2023-03-30]
