@@ -1,5 +1,9 @@
 import * as yup from "yup";
-
+/**
+ * Validation schema for user inputs.
+ * @type {yup.ObjectSchema}
+ *
+ * */
 export const schema = yup.object().shape({
   firstName: yup
     .string()

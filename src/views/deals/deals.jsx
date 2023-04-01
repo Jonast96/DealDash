@@ -5,6 +5,12 @@ import LoadingPage from "../../components/Loader";
 import ProductCard from "../home/product-card";
 import "../../styles/deals/deals.scss";
 
+/**
+ * Deals component displays a list of discounted products.
+ * Fetches product data from the API and displays it using ProductCard components.
+ *
+ * @returns {JSX.Element} - The Deals component with a list of discounted products or a loading/error message.
+ */
 export default function Deals() {
   const { data, error, loading } = useApiCall(
     "https://api.noroff.dev/api/v1/online-shop"

@@ -10,6 +10,11 @@ import savedAmountCalculator from "../../components/savedAmountCalculator";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+/**
+ * SingleItem component displays detailed information about a specific product.
+ *
+ * @returns {JSX.Element} - The SingleItem component with product information, ratings, reviews, and an "Add to cart" button.
+ */
 export default function SingleItem() {
   const params = useParams();
   const { data, error, loading } = useApiCall(

@@ -6,6 +6,11 @@ import image from "../../media/question.jpg";
 import "../../styles/support/support.scss";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Support component that displays a contact form for users to submit support requests.
+ *
+ * @returns {JSX.Element} - The Support component with the contact form and related information.
+ */
 export default function Support() {
   const navigate = useNavigate();
   const {
@@ -21,13 +26,6 @@ export default function Support() {
     navigate("/");
   };
 
-  /**
-Render Input field.
-@function
-@param {string} name - The name of the input field.
-@param {string} label - The label of the input field.
-@returns {JSX.Element}
-*/
   const renderInput = (name, label) => (
     <div className="labelInput">
       <span className="highlight"></span>

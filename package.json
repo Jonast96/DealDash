@@ -29,7 +29,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "wee": "serve -s build"
+    "wee": "serve -s build",
+    "docs": "jsdoc src -d outputDirectory -r"
   },
   "eslintConfig": {
     "extends": [

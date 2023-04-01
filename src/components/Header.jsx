@@ -3,6 +3,9 @@ import React, { useContext } from "react";
 import cartImg from "../media/cart.png";
 import { CartContext } from "./Cart";
 import useApiCall from "../hooks/useApiCall";
+/**
+ * @module Header
+ */
 
 /**
  * Header component displaying the navigation bar and search functionality
