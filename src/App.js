@@ -16,6 +16,12 @@ import Footer from './components/Footer';
 import PurchaseComplete from "./views/purchaseComplete/purchaseComplete"
 import ScrollToTop from './components/ScrollToTop';
 
+/**
+ * Layout component that wraps the Header, Footer, and ScrollToTop components around its children.
+ *
+ * @param {Object} props - The props passed to the component.
+ * @returns {JSX.Element} - The Layout component with Header, Footer, and ScrollToTop components.
+ */
 function Layout(props) {
   return (
     <>
@@ -27,7 +33,11 @@ function Layout(props) {
   )
 }
 
-
+/**
+ * App component that sets up the CartProvider, routes, and Layout.
+ *
+ * @returns {JSX.Element} - The App component with CartProvider and Routes.
+ */
 function App() {
 
 

@@ -1,6 +1,11 @@
 import checkMark from "../../media/check.jpg";
 import { Link } from "react-router-dom";
 
+/**
+ * PurchaseComplete component displays a confirmation message after a successful purchase.
+ *
+ * @returns {JSX.Element} - The PurchaseComplete component with a confirmation message and a "Browse items" button.
+ */
 export default function PurchaseComplete() {
   return (
     <main className="main-content ">

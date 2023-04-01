@@ -4,6 +4,13 @@ import ProductCard from "./product-card";
 import React from "react";
 import useApiCall from "../../hooks/useApiCall";
 import LoadingPage from "../../components/Loader";
+
+/**
+ * Home component displays a Heading component and a list of products.
+ * Fetches product data from the API and displays it using ProductCard components.
+ *
+ * @returns {JSX.Element} - The Home component with a Heading and a list of products, or a loading/error message.
+ */
 export default function Home() {
   const { data, error, loading } = useApiCall(
     "https://api.noroff.dev/api/v1/online-shop"
